@@ -6,10 +6,11 @@ const CoinGeckoClient = new CoinGecko();
 
 //3. Make calls
 var gecko = async () => {
-    // let data = await CoinGeckoClient.coins.fetch('bitcoin', {});
-    let data = await CoinGeckoClient.global();
-    // console.log(data);
-    return data
+    let datax = await CoinGeckoClient.coins.fetch('bitcoin', {});
+    // let data = await CoinGeckoClient.global();
+    // console.log(datax);
+    // return data
+    return datax
 };
 
 gecko()
