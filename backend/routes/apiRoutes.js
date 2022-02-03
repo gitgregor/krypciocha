@@ -5,68 +5,59 @@ const geckoModel = require('../models/geckoModel')
 
 const router = express.Router();
 
-// @desc GET - send to React serviced by axios (get) the response with Database data requested by frontend axios GET. Before sen
-router.get("/gecko", function (req, res) {
-    const getGecko = async () => {
-        // find records in Database
-        const geckoGlobal = await geckoModel.find({})
+/**
+ * ======= POST region ===========
+ */
 
-        // map object to get simple value of specific key value pair
-        const geckoGlobalCode = geckoGlobal.map(item => item.code)
-        const geckoGlobalMessage = geckoGlobal.map(item => item.message)
+// @desc POST 
+router.post('/geckobtc', (req, res) => {
 
-        // data sended to client and will be destructered as a data at frontend
-        res.send({
-            code: geckoGlobalCode,
-            message: geckoGlobalMessage
-        })
-    }
-    getGecko()
-});
+    const createGeckoBTC = async () => {
 
-// @desc
-router.get("/geckobtc", function (req, res) {
-
-    const getGeckoBTC = async () => {
-
-
-        // map object to get simple value of specific key value pair
-        const geckoBTC = await coingeckoAPI()
+        const geckoBTCdata = await coingeckoAPI()
             .then(item => item.data)
             .then(md => md.market_data)
             .then(mc => mc.market_cap)
             .then(quote => quote.usd)
 
-        console.log(geckoBTC);
+        const geckoBTC = new geckoModel({
+            BTC_marketcap: geckoBTCdata,
+        })
 
-        // data sended to client and will be destructered as a data at frontend
+        const createdGecko = await geckoBTC.save()
+        res.status(201).send(createdGecko)
+    }
+    createGeckoBTC()
+})
+
+/**
+ * =======END of POST region ===========
+ */
+
+/**
+ * ======= GET region ===========
+ */
+
+// @desc GET
+router.get("/geckobtc", function (req, res) {
+
+    const getGeckoBTC = async () => {
+
+        const geckoBTC = await geckoModel.find({})
+
+        const geckoBTC_marketcap = geckoBTC.map(item => item.BTC_marketcap)
+
         res.send({
-            code: geckoBTC,
+            BTC_marketcap: geckoBTC_marketcap,
         })
     }
     getGeckoBTC()
 });
 
+/**
+ * ======= END of GET region ===========
+ */
 
 
-// @desc POST  - create a coingecko record to Database
-// from Coingecko API, requestet by frontend post axios service
-router.post('/gecko', (req, res) => {
-
-    const createGecko = async () => {
-
-        const geckoData = await coingeckoAPI().then(item => item.code)
-
-        const geckoGlobal = new geckoModel({
-            code: geckoData,
-            message: 'save to DmongoB from Gecko !!!',
-        })
-        console.log(geckoData)
-
-        const createdGecko = await geckoGlobal.save()
-        res.status(201).send(createdGecko)
-    }
-    createGecko()
-})
 
 module.exports = router;

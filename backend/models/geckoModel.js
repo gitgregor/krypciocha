@@ -1,12 +1,9 @@
-// import mongoose from 'mongoose'
 const mongoose = require('mongoose')
 
 const geckoSchema = mongoose.Schema({
-    code: {
+
+    BTC_marketcap: {
         type: Number,
-    },
-    message: {
-        type: String,
     },
 
 }, {
@@ -15,5 +12,4 @@ const geckoSchema = mongoose.Schema({
 
 const Gecko = mongoose.model('Gecko', geckoSchema)
 
-// export default Gecko
 module.exports = Gecko

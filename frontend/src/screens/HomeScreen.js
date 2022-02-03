@@ -3,50 +3,32 @@ import axios from 'axios'
 
 
 const HomeScreen = () => {
-  const [gecko, setGecko] = useState([])
   const [geckoBTC, setGeckoBTC] = useState([])
 
   useEffect(() => {
 
-    // Fetch by axios.get to get coingecko data from DB
-    const fetchGecko = async () => {
-      const { data } = await axios.get('http://localhost:5000/api/gecko')
-      setGecko(data)
+    // POST request 
+    const createGeckoBTC = async () => {
+      await axios.post('http://localhost:5000/api/geckobtc', {})
     }
-    fetchGecko()
+    createGeckoBTC()
 
-    // Fetch by axios.get to get coingecko data from DB
-    const fetchGeckoBTC = async () => {
+    // GET request
+    const getGeckoBTC = async () => {
       const { data } = await axios.get('http://localhost:5000/api/geckobtc')
       setGeckoBTC(data)
     }
-    fetchGeckoBTC()
+    getGeckoBTC()
 
-    // POST request to create new record of coingecko on DB by express. Data at express is getting from coingecko api
-    const createGecko = async () => {
-      await axios.post('http://localhost:5000/api/gecko', {})
-    }
-    createGecko()
 
   }, [])
 
   return (
     <>
-      <h1>Latest Products</h1>
-      {console.log(gecko)}
-      {console.log(geckoBTC)}
-
-      <div>
-        {gecko.code}
-      </div>
-
+      <h1>BTC Marketcap</h1>
       <hr></hr>
       <div>
-        {gecko.message}
-      </div>
-      <hr></hr>
-      <div>
-        {geckoBTC.code}
+        {geckoBTC.BTC_marketcap}
       </div>
     </>
   )
