@@ -1,87 +1,48 @@
-var express = require("express");
+
+const express = require("express");
 const coingecko = require('../../cryptoapis/coingecko.js');
 const geckoModel = require('../models/geckoModel')
 
 const router = express.Router();
 
+// @desc GET - send to React serviced by axios (get) the response with Database data requested by frontend axios GET. Before sen
 router.get("/gecko", function (req, res) {
 
     const getGecko = async () => {
-
-        // wysałane z zassedowanej  bazy
-
+        // find records in Database
         const geckoGlobal = await geckoModel.find({})
-        // console.log(geckoGlobal)
 
+        // map object to get simple value of specific key value pair
         const geckoGlobalCode = geckoGlobal.map(item => item.code)
         const geckoGlobalMessage = geckoGlobal.map(item => item.message)
-        // console.log(geckoGlobal)
+
+        // data sended to client and will be destructered as a data at frontend
         res.send({
             code: geckoGlobalCode,
             message: geckoGlobalMessage
         })
-
-        //wysłane przez res.send bezpośrednio z klienta coingecko api node
-
-        // const data = coingecko().then(x => {
-        //     console.log(x.code)
-        //     res.send({
-        //         code: x.code,
-        //         message: x.message
-        //     })
-        // }
-        // )
     }
-
     getGecko()
 });
 
-
-// @desc    Create a product
-
-
+// @desc POST  - create a coingecko record to Database
+// from Coingecko API, requestet by frontend post axios service
 router.post('/gecko', (req, res) => {
 
     const createGecko = async () => {
 
-        const data = async () => {
-            const dat = await coingecko().then(x => x.code)
+        const geckoData = await coingecko().then(item => item.code)
 
-            const geckoGlobal = new geckoModel({
-                code: dat,
-                message: 'save to DmongoB from Gecko !!!',
-            })
+        const geckoGlobal = new geckoModel({
+            code: geckoData,
+            message: 'save to DmongoB from Gecko !!!',
+        })
+        console.log(geckoData)
 
-            console.log(dat)
-
-            const createdGecko = await geckoGlobal.save()
-            res.status(201).send(createdGecko)
-        }
-        data()
-
+        const createdGecko = await geckoGlobal.save()
+        res.status(201).send(createdGecko)
     }
-
     createGecko()
 })
-
-// router.post('/gecko', (req, res) => {
-
-//     const createGecko = async () => {
-//         const geckoGlobal = new geckoModel({
-//             code: 0,
-//             message: 'message save to DB from gecko',
-
-//         })
-
-//         const createdGecko = await geckoGlobal.save()
-//         res.status(201).send(createdGecko)
-//     }
-
-//     createGecko()
-// })
-
-
-
-
 
 module.exports = router;

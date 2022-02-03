@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from 'react'
-// import { Row, Col } from 'react-bootstrap'
-
 import axios from 'axios'
 
 
 const HomeScreen = () => {
   const [gecko, setGecko] = useState([])
-  // const [createGecko, setCreateGecko] = useState([])
 
   useEffect(() => {
 
+    // Fetch by axios.get to get coingecko data from DB
     const fetchGecko = async () => {
       const { data } = await axios.get('http://localhost:5000/api/gecko')
       setGecko(data)
     }
     fetchGecko()
 
+    // POST request to create new record of coingecko on DB by express. Data at express is getting from coingecko api
     const createGecko = async () => {
-      const { data } = await axios.post('http://localhost:5000/api/gecko', {
-
-      })
-      // setGecko(data)
+      await axios.post('http://localhost:5000/api/gecko', {})
     }
     createGecko()
 
