@@ -3069,6 +3069,20 @@
   "resolved" "https://registry.npmjs.org/char-regex/-/char-regex-2.0.0.tgz"
   "version" "2.0.0"
 
+"chart.js@^3.5.0":
+  "integrity" "sha512-31gVuqqKp3lDIFmzpKIrBeum4OpZsQjSIAqlOpgjosHDJZlULtvwLEZKtEhIAZc7JMPaHlYMys40Qy9Mf+1AAg=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-3.7.0.tgz"
+  "version" "3.7.0"
+
+"chart@^0.1.2":
+  "integrity" "sha1-adnpFsJqi+2Fsp34Asdjq1KX0xg="
+  "resolved" "https://registry.npmjs.org/chart/-/chart-0.1.2.tgz"
+  "version" "0.1.2"
+  dependencies:
+    "hashish" ""
+    "hat" ""
+    "mrcolor" "https://github.com/rook2pawn/mrcolor/archive/master.tar.gz"
+
 "check-types@^11.1.1":
   "integrity" "sha512-tzWzvgePgLORb9/3a0YenggReLKAIb2owL03H2Xdoe5pKcUyWRSEQ8xfCar8t2SIAuEDwtmx2da1YB52YuHQMQ=="
   "resolved" "https://registry.npmjs.org/check-types/-/check-types-11.1.2.tgz"
@@ -3146,6 +3160,11 @@
     "chalk" "^2.4.1"
     "q" "^1.1.2"
 
+"coingecko-api@^1.0.10":
+  "integrity" "sha512-7YLLC85+daxAw5QlBWoHVBVpJRwoPr4HtwanCr8V/WRjoyHTa1Lb9DQAvv4MDJZHiz4no6HGnDQnddtjV35oRA=="
+  "resolved" "https://registry.npmjs.org/coingecko-api/-/coingecko-api-1.0.10.tgz"
+  "version" "1.0.10"
+
 "collect-v8-coverage@^1.0.0":
   "integrity" "sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg=="
   "resolved" "https://registry.npmjs.org/collect-v8-coverage/-/collect-v8-coverage-1.0.1.tgz"
@@ -3164,6 +3183,11 @@
   "version" "2.0.1"
   dependencies:
     "color-name" "~1.1.4"
+
+"color-convert@0.2.x":
+  "integrity" "sha1-NjyrI8lLMaDWTbcQSLjGqUD4xow="
+  "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-0.2.1.tgz"
+  "version" "0.2.1"
 
 "color-name@^1.1.4", "color-name@~1.1.4":
   "integrity" "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
@@ -4446,6 +4470,11 @@
     "utils-merge" "1.0.1"
     "vary" "~1.1.2"
 
+"faker@^6.6.6":
+  "integrity" "sha512-9tCqYEDHI5RYFQigXFwF1hnCwcWCOJl/hmll0lr5D2Ljjb0o4wphb69wikeJDz5qCEzXCoPvG6ss5SDP6IfOdg=="
+  "resolved" "https://registry.npmjs.org/faker/-/faker-6.6.6.tgz"
+  "version" "6.6.6"
+
 "fast-deep-equal@^2.0.1":
   "integrity" "sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz"
@@ -4891,6 +4920,18 @@
   "version" "1.0.3"
   dependencies:
     "function-bind" "^1.1.1"
+
+"hashish@":
+  "integrity" "sha1-bWC8b/r3Ebav1g5CbQd5iAFOZVQ="
+  "resolved" "https://registry.npmjs.org/hashish/-/hashish-0.0.4.tgz"
+  "version" "0.0.4"
+  dependencies:
+    "traverse" ">=0.2.4"
+
+"hat@":
+  "integrity" "sha1-uwFKnmSzeIrtgAWRdBPU/z1QLYo="
+  "resolved" "https://registry.npmjs.org/hat/-/hat-0.0.3.tgz"
+  "version" "0.0.3"
 
 "he@^1.2.0":
   "integrity" "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
@@ -6393,6 +6434,13 @@
   dependencies:
     "minimist" "0.0.8"
 
+"mrcolor@https://github.com/rook2pawn/mrcolor/archive/master.tar.gz":
+  "integrity" "sha512-feteSepg0FRp0fW3RafigAjU7gXiiaa4OlMW39FEmcvQPbD7Zlpc2PSu4hVBPSBR4XNee8n6EjCTfK0O37DL5A=="
+  "resolved" "https://github.com/rook2pawn/mrcolor/archive/master.tar.gz"
+  "version" "0.0.1"
+  dependencies:
+    "color-convert" "0.2.x"
+
 "ms@^2.1.1", "ms@2.1.2":
   "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
@@ -7600,6 +7648,11 @@
     "uncontrollable" "^7.2.1"
     "warning" "^4.0.3"
 
+"react-chartjs-2@^4.0.1":
+  "integrity" "sha512-q8bgWzKoFvBvD7YcjT/hXG8jt55TaMAuJ1dmI3tKFJ7CijUWYz4pIfOhkTI6PBTwqu/pmeWsClBRd/7HiWzN1g=="
+  "resolved" "https://registry.npmjs.org/react-chartjs-2/-/react-chartjs-2-4.0.1.tgz"
+  "version" "4.0.1"
+
 "react-dev-utils@^12.0.0":
   "integrity" "sha512-xBQkitdxozPxt1YZ9O1097EJiVpwHr9FoAuEVURCKV0Av8NBERovJauzP7bo1ThvuhZ4shsQ1AJiu4vQpoT1AQ=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-12.0.0.tgz"
@@ -7756,7 +7809,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^16.8.0 || ^17.0.0-rc.1", "react@^17.0.2", "react@>= 16", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.13.1", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0-rc.1", "react@^17.0.2", "react@>= 16", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.13.1", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -8857,6 +8910,11 @@
   "version" "2.1.0"
   dependencies:
     "punycode" "^2.1.1"
+
+"traverse@>=0.2.4":
+  "integrity" "sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc="
+  "resolved" "https://registry.npmjs.org/traverse/-/traverse-0.6.6.tgz"
+  "version" "0.6.6"
 
 "tryer@^1.0.1":
   "integrity" "sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA=="

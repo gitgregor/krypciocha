@@ -5,31 +5,32 @@ import axios from 'axios'
 const HomeScreen = () => {
   const [geckoBTC, setGeckoBTC] = useState([])
 
+  // GET request
+  const createGeckoBTC = async () => {
+    await axios.post('http://localhost:5000/api/geckobtc', {})
+  }
+
+  // POST request 
+  const getGeckoBTC = async () => {
+    const { data } = await axios.get('http://localhost:5000/api/geckobtc')
+    setGeckoBTC(data)
+  }
+
   useEffect(() => {
-
-    // POST request 
-    const createGeckoBTC = async () => {
-      await axios.post('http://localhost:5000/api/geckobtc', {})
-    }
-    createGeckoBTC()
-
-    // GET request
-    const getGeckoBTC = async () => {
-      const { data } = await axios.get('http://localhost:5000/api/geckobtc')
-      setGeckoBTC(data)
-    }
     getGeckoBTC()
-
-
+    createGeckoBTC()
   }, [])
 
   return (
     <>
+      {console.log(geckoBTC.BTC_marketcap)}
       <h1>BTC Marketcap</h1>
       <hr></hr>
-      <div>
-        {geckoBTC.BTC_marketcap}
+      <div className="container">
+        {geckoBTC ? [geckoBTC.BTC_marketcap].map((mc, index) => <div className="inbox" key={index}>{mc}</div>) : "wait for the data ..."}
       </div>
+
+      <hr></hr>
     </>
   )
 }
