@@ -11,6 +11,7 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const Gecko = require('./models/geckoModel')
+const GeckoDerivatives = require('./models/geckoModelDerivatives')
 const connectDB = require('./config/db')
 
 dotenv.config()
@@ -54,6 +55,7 @@ const destroyData = async () => {
         // await User.deleteMany()
 
         await Gecko.deleteMany()
+        await GeckoDerivatives.deleteMany()
 
         console.log('Data Destroyed');
         process.exit()

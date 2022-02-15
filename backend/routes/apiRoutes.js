@@ -2,6 +2,7 @@
 const express = require("express");
 const coingeckoAPI = require('../../cryptoapis/coingecko.js');
 const geckoModel = require('../models/geckoModel')
+const geckoModelDerivatives = require('../models/geckoModelDerivatives')
 
 const router = express.Router();
 
@@ -9,7 +10,7 @@ const router = express.Router();
  * ======= POST region ===========
  */
 
-// @desc POST 
+// @desc POST : coinBTC SPOT
 router.post('/geckobtc', (req, res) => {
 
     const createGeckoBTC = async () => {
@@ -29,6 +30,41 @@ router.post('/geckobtc', (req, res) => {
     }
     createGeckoBTC()
 })
+
+// @desc POST : save in DB derivatives from Binanace by coinGecko API requested from React axios POST
+
+router.post('/geckoDerivatives/:price', (req, res) => {
+
+    const createDerivativesDocumentInDB = async () => {
+
+
+        const geckoDerivatives = new geckoModelDerivatives({
+            price: req.params.price
+        })
+
+        console.log(req.params.price)
+        const createdGecko = await geckoDerivatives.save()
+        res.status(201).send(createdGecko)
+
+
+        //const geckoDerivatives = new geckoModelDerivatives({
+        //     price: req.params.price
+        // })
+
+        // console.log(req.params.price)
+        // const createdGecko = await geckoDerivatives.save()
+        // res.status(201).send(createdGecko)
+
+
+
+    }
+    createDerivativesDocumentInDB()
+})
+
+
+
+
+
 
 /**
  * =======END of POST region ===========
